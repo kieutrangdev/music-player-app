@@ -1,0 +1,10 @@
+const express = require("express")
+const app = express()
+const dbConfig = require("./config/dbConfig")
+app.use(express.json())
+const userRouter = require("./routers/userRouter")
+const songRouter = require("./routers/songRouter")
+const port = 5000
+app.use("/api/users", userRouter)
+app.use("/api/songs", songRouter)
+app.listen(port, () => console.log(`Running on port ${port}`))
